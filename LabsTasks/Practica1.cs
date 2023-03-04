@@ -31,7 +31,101 @@ namespace LabsTasks
             //arrCopy Length - 6, indexMax - 5
             arrCopy[arrCopy.Length - 1] = searchValue;
 
-            Search(arrCopy, searchValue);  
+            Search(arrCopy, searchValue);
+        }
+
+        public static void Binary(int[] arr, int searchValue)
+        {
+            Console.WriteLine("Sorted array");
+            System.Array.Sort(arr);
+            foreach (int ar in arr)
+            {
+                Console.Write(ar + " ");
+            }
+
+            int min = 0;
+            int max = arr.Length - 1;
+            while (min <= max)
+            {
+                int mid = (min + max) / 2;
+                int midIndex = arr[mid];
+
+                if (midIndex == searchValue)
+                {
+                    Console.WriteLine($"Number {searchValue} - found");
+                    return;
+                }
+                else if (midIndex < searchValue)
+                    min = mid + 1;
+                else
+                    max = mid - 1;
+            }
+            Console.WriteLine($"Number {searchValue} - not found");
+        }
+
+        //public static void Binary(int[] arr, int searchValue)
+        //{
+        //    Console.WriteLine("Sorted array");
+        //    System.Array.Sort(arr);
+        //    foreach (int ar in arr)
+        //    {
+        //        Console.Write(ar + " ");
+        //    }
+
+        //    int min = 0;
+        //    int max = arr.Length - 1;
+        //    while (min <= max)
+        //    {
+        //        int mid = (min + max) / 2;
+        //        int midIndex = arr[mid];
+
+        //        if (midIndex == searchValue)
+        //        {
+        //            Console.WriteLine($"Number {searchValue} - found");
+        //            return;
+        //        }
+        //        else if (midIndex < searchValue)
+        //            min = mid + 1;
+        //        else
+        //            max = mid - 1;
+        //    }
+        //    Console.WriteLine($"Number {searchValue} - not found");
+        //}
+        static void GoldenSectionBinary(int[] arr, int searchValue)
+        {
+            Console.WriteLine("Sorted array");
+            System.Array.Sort(arr);
+            foreach (int ar in arr)
+            {
+                Console.Write(ar + " ");
+            }
+
+            int min = 0;
+            int max = arr.Length - 1;
+            double mid = (1 + Math.Sqrt(5)) / 2;
+            int x1 = (int)Math.Floor(max - (max - min) / mid); //повертає більше значення            
+            int x2 = (int)Math.Ceiling(min + (max - min) / mid); //повертає менше значення
+
+            while (min <= max)
+            {
+                if (arr[x1] == searchValue || arr[x2] == searchValue)
+                {
+                    Console.WriteLine($"\nNumber {searchValue} - found");
+                    return;
+                }
+                if (searchValue < arr[x1])
+                    max = x1 - 1;
+                else if (searchValue > arr[x2])
+                    min = x2 + 1;
+                else
+                {
+                    min = x1 + 1;
+                max = x2 - 1;
+                }
+                x1 = (int)Math.Floor(max - (max - min) / mid);
+                x2 = (int)Math.Ceiling(min + (max - min) / mid);
+            }
+            Console.WriteLine($"\nNumber {searchValue} - not found");
         }
     }
 }
