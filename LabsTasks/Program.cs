@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using LabsTasks;
+using LabsTasks.Lab2;
+using LabsTasks.ListLearn;
 
-var arr = new int[] { 1, 3, 5, 8, 9 };
-var element = 5;
-var elemntWithBarrier = 11;
+Lab2_7.Solution();

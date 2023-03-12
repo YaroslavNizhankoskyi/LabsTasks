@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LabsTasks
 {
-    internal class Lab2
+    internal class ListPractice
     {
-        public static int[] GetRandomNumbers(int min, int max, )
+        public static void UseList()
         {
-
+            var list = new List<string>();
         }
     }
+
+
 }

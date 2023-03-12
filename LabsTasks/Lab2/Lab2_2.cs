@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabsTasks
+namespace LabsTasks.Lab2
 {
     internal class Lab2_2
     {
