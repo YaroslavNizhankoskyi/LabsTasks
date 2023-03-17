@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabsTasks
+namespace LabsTasks.Lab2
 {
     internal static class Lab2_9
     {
@@ -18,9 +18,9 @@ namespace LabsTasks
 
             var operations = calcList
                 .FindAll(x => symbols.Contains(x))
-                .ToList(); 
+                .ToList();
 
-            for(var i = 0; i < calcList.Count; i++)
+            for (var i = 0; i < calcList.Count; i++)
             {
                 if (symbols.Contains(calcList[i]))
                 {
@@ -31,16 +31,16 @@ namespace LabsTasks
             var numsString = new string(calcList.ToArray());
             var nums = numsString
                 .Split(',')
-                .Select(x => int.Parse(x))  
+                .Select(x => int.Parse(x))
                 .ToList();
 
             var result = int.MinValue;
 
-            if(nums.Count - 1 == operations.Count)
+            if (nums.Count - 1 == operations.Count)
             {
                 while (nums.Count > 0)
                 {
-                    if(result == int.MinValue)
+                    if (result == int.MinValue)
                     {
                         var leftOp = nums[0];
                         var rightOp = nums[1];
@@ -52,7 +52,8 @@ namespace LabsTasks
                         operations.RemoveAt(0);
                         nums.RemoveAt(0);
                         nums.RemoveAt(0);
-                    }else
+                    }
+                    else
                     {
                         result = CalcOperation(result, nums[0], operations[0]);
                         operations.RemoveAt(0);
@@ -70,7 +71,7 @@ namespace LabsTasks
         }
 
         private static string RemoveGarbageSymbols(string str)
-        {            
+        {
             return str; //TODO;
         }
 
