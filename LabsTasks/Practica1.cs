@@ -34,9 +34,8 @@ namespace LabsTasks
             Search(arrCopy, searchValue);
         }
 
-        public static void Binary(int[] arr, int searchValue)
+        public static bool Binary(int[] arr, int searchValue)
         {
-            Console.WriteLine("Sorted array");
             System.Array.Sort(arr);
             foreach (int ar in arr)
             {
@@ -52,15 +51,14 @@ namespace LabsTasks
 
                 if (midIndex == searchValue)
                 {
-                    Console.WriteLine($"Number {searchValue} - found");
-                    return;
+                    return true;
                 }
                 else if (midIndex < searchValue)
                     min = mid + 1;
                 else
                     max = mid - 1;
             }
-            Console.WriteLine($"Number {searchValue} - not found");
+            return false;
         }
 
         //public static void Binary(int[] arr, int searchValue)

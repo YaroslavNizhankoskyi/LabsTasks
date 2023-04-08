@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabsTasks
+namespace LabsTasks.Lab2
 {
-    internal class Lab2
+    internal class Numbers
     {
         //10000, erath - 10000
         public static void CheckNumbers(int[] arr, int max)
