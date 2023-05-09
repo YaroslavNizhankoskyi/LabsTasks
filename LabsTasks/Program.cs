@@ -1,12 +1,10 @@
 ﻿
+using LabsTasks.ExcelEx;
+using LabsTasks.Trees;
 using LabsTasks.ZooShop;
 
-var shop = new ZooShop();
 
-shop.ShowAll();
 
-Console.WriteLine("\n ################## \n");
+var treeSearch = new TreeSearch();
 
-shop.ShowProductsByAnimalType(AnimalType.Cats);
-shop.ShowProductsByAnimalType(AnimalType.Dogs);
-
+treeSearch.FindMinMax();
